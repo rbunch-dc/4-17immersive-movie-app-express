@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+
+	<script type="text/javascript">
+	</script>
+
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="text-danger col-sm-12 text-center">
+				Welcome to my movie app. These are now playing.
+			</div>
+			<div class="col-sm-12 movies">
+				<% for(let i = 0; i < movieData.length; i++) { %>
+					<div class="col-sm-3">
+						<img src="<%= imageBaseUrl + movieData[i].poster_path %>" >
+					</div>
+				<% } %>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
