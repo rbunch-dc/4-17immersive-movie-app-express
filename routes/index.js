@@ -1,10 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var request = require('request');
+var config = require('../config/config')
+
+console.log(config);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	const apiKey = 'fec8b5ab27b292a68294261bb21b04a5';
 	const apiBaseUrl = 'http://api.themoviedb.org/3';
 	const nowPlayingUrl = apiBaseUrl + '/movie/now_playing?api_key='+apiKey
 	const imageBaseUrl = 'http://image.tmdb.org/t/p/w300';
