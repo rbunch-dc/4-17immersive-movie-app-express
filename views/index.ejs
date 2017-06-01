@@ -17,6 +17,18 @@
 			<div class="text-danger col-sm-12 text-center">
 				Welcome to my movie app. These are now playing.
 			</div>
+
+			<div class="col-sm-6 col-sm-offset-3">
+				<form id="search-form" class="form-inline" action="/search" method="post">
+					<input type="text" placeholder="Movie Title" name="searchString"/>
+					<button type="submit" class="btn btn-primary">Search!</button>
+				</form>
+			</div>
+
+<!-- 			<div>
+				<%- '<div class="bg-danger">Hello</div>' %>
+			</div>
+ -->
 			<div class="col-sm-12 movies">
 				<% for(let i = 0; i < movieData.length; i++) { %>
 					<div class="col-sm-3">
