@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+
+	<script type="text/javascript">
+	</script>
+
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="text-danger col-sm-12 text-center">
+				<%= titleHeader %>
+			</div>
+
+			<div class="col-sm-6 col-sm-offset-3">
+				<form id="search-form" class="form-inline" action="/search" method="post">
+					<input type="text" placeholder="Movie Title" name="searchString"/>
+					<button type="submit" class="btn btn-primary">Search!</button>
+				</form>
+			</div>
+
+<!-- 			<div>
+				<%- '<div class="bg-danger">Hello</div>' %>
+			</div>
+ -->
+			<div class="col-sm-12 movies">
+				<% for(let i = 0; i < movieData.length; i++) { %>
+					<div class="col-sm-3">
+						<a href="/movie/<%= movieData[i].id %>">
+							<img src="<%= imageBaseUrl + movieData[i].poster_path %>" >
+						</a>
+					</div>
+				<% } %>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
