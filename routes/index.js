@@ -78,4 +78,40 @@ router.get('/movie/:id',(req, res)=>{
 	// res.send(req.params.id);
 });
 
+router.get('/register', (req, res)=>{
+	// res.send("THis is teh register page.")
+	var message = req.query.msg;
+	if(message == "badEmail"){
+		message = "This email is already registered";
+	}
+	res.render('register',{message: message});
+});
+
+router.post('/registerProcess', (req,res)=>{
+	var name = req.body.name;
+	var email = req.body.email;
+	var password = req.body.password;
+
+	var selectQuery = "SELECT * FROM users WHERE email = ?";
+	connection.query(selectQuery,[email],(error, results)=>{
+		if(results.length == 0 ){
+			// User is not in the db. Insert them
+			var insertQuery = "INSERT INTO users (name,email,password) VALUES (?,?,?)";
+			connection.query(insertQuery, [name,email,password], (error,results)=>{
+				res.redirect('/?msg=registered')
+			});	
+		}else{
+			// User is in the db. Send them back to register with a message
+			res.redirect('/register?msg=badEmail');
+		}
+
+	});
+	// res.json(req.body);
+});
+
+router.get('/login', (req, res)=>{
+	// res.send("THis is teh login page.")
+	res.render('login',{ });
+});
+
 module.exports = router;
