@@ -8,7 +8,9 @@
       <li><a href="/login">Login</a></li>
       <li><a href="/register">Register</a></li>
       <li><a href="/favorites">Favorites</a></li>
-
+      <% if(typeof(sessionInfo) !== "undefined"){ %>
+          <li>Welcome <%= sessionInfo.name %></li>
+      <% } %>
     </ul>
   </div>
 </nav>
