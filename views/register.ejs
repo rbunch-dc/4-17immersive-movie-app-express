@@ -5,14 +5,24 @@
 
 	<% include head %>
 
+	<script type="text/javascript">
+		
+	$(document).ready(function(){
+		if($('.error h3').html() != ""){
+			$('.error').addClass('animate');
+		}
+	});
+
+	</script>
+
 </head>
 <body>
 	<% include navbar %>
 
 	<div class="container">
 		<div class="row">
-			<div class="text-danger col-sm-12 text-center">
-				<div class="col-sm-12 text-danger text-center">
+			<div class="col-sm-12 text-center">
+				<div class="col-sm-12 text-danger error">
 					<h3><%= message %></h3>
 				</div>
 				<form action="/registerProcess" method="post">

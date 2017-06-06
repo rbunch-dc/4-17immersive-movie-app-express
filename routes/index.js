@@ -24,7 +24,10 @@ const imageBaseUrl = 'http://image.tmdb.org/t/p/w300';
 router.get('/', function(req, res, next) {
 	request.get(nowPlayingUrl,(error,response,movieData)=>{
 		var movieData = JSON.parse(movieData);
-		console.log(movieData)
+		// console.log(movieData)r
+		console.log("===================");
+		console.log(req.session);
+		console.log("===================");
 		res.render('movie_list', { 
 			movieData: movieData.results,
 			imageBaseUrl: imageBaseUrl,
@@ -98,8 +101,12 @@ router.post('/registerProcess', (req,res)=>{
 			// User is not in the db. Insert them
 			var insertQuery = "INSERT INTO users (name,email,password) VALUES (?,?,?)";
 			connection.query(insertQuery, [name,email,password], (error,results)=>{
+				// Add session vars -- name, email, loggedin, id
+				req.session.name = name;
+				req.session.email = email;
+				req.session.loggedin = true;
 				res.redirect('/?msg=registered')
-			});	
+			});
 		}else{
 			// User is in the db. Send them back to register with a message
 			res.redirect('/register?msg=badEmail');

@@ -15,3 +15,14 @@ a {
 img{
 	max-width: 100%
 }
+
+
+.error{
+	transition: all 3s;
+	background-color: white;
+}
+
+.error.animate{
+	background-color: red;
+	color: white;
+}

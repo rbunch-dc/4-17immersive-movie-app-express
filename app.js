@@ -4,11 +4,20 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var expressParser = require('express-session');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+// Make req.session avaialable
+app.use(expressParser({
+	secret: 'dc4life',
+	resave: false,
+	saveUninitialized: true
+}));
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
