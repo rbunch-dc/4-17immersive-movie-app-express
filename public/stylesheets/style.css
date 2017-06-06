@@ -1,11 +1,15 @@
 body {
-  padding: 50px;
+  /* padding: 50px; */
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-	font-size: 40px;
+	/* font-size: 40px; */
 }
 
 a {
   color: #00B7FF;
+}
+
+.col-sm-3 img{
+	height: 100%;
 }
 
 img{
